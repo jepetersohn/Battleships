@@ -1,30 +1,30 @@
 Battle Ships
 =============
 
-Player
+Player (ship, board)
 -------------------
-* places ships on board|ship
-* shoots at the board|board
+* places ships on board
+* shoots at the board
 
 Ship (board, player, square)
 ---------------------------
-* can occupy a square   |board
-* can be hit 			|player
-* can sink 				|square
+* can occupy a square   
+* can be hit 			
+* can sink 				
 
-Square
+Square (ship, board)
 --------------------
-* knows if it has a ship 				    |ship
-* knows when it is shot but empty (miss)    |board
-* knows when it is shot and has a ship (hit) |
-* knows if it is empty |
+* knows if it has a ship 				   
+* knows when it is shot but empty (miss)  
+* knows when it is shot and has a ship (hit) 
+* knows if it is empty 
 
-Board 
+Board (player, square, ship)
 ---------------------------
-* has squares |player
-* reports victory |square
-* reports when a ship is sunk |ship
-* tells a square when it is hit |
-* tells a square when it it has a ship |
-* displays a hit |
-* displays a miss |
+* has squares
+* reports victory
+* reports when a ship is sunk
+* tells a square when it is hit
+* tells a square when it it has a ship
+* displays a hit
+* displays a miss
