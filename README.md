@@ -15,25 +15,25 @@ When all of one player's ships have been hit the game finishes and the player wh
 
 ##CRC Modelling
 
-Player (ship, board)
+###Player (ship, board)
 -------------------
 * places ships on board
 * shoots at the board
 
-Ship (board, player, square)
+###Ship (board, player, square)
 ---------------------------
 * can occupy a square   
 * can be hit 			
 * can sink 				
 
-Square (ship, board)
+###Square (ship, board)
 --------------------
 * knows if it has a ship 				   
 * knows when it is shot but empty (miss)  
 * knows when it is shot and has a ship (hit) 
 * knows if it is empty 
 
-Board (player, square, ship)
+###Board (player, square, ship)
 ---------------------------
 * has squares
 * reports victory
