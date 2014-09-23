@@ -1,36 +1,32 @@
 require 'cell'
 
-describe Cell do 
+describe Cell do
 
-	let(:cell) { Cell.new }
-	
-	context "on initialize it should" do
-		
-		it "be unoccupied" do
-			expect(cell.occupied).to be false
+	let(:cell) {Cell.new}
+
+	context "upon initialize it" do
+
+		it "should have empty status" do
+			expect(cell.status).to be :empty
 		end
 
-		it "should not be missed" do
-			expect(cell.miss).to be false
+		it "should have no ship" do
+			expect(cell.ship).to eq(nil)
 		end
-
 	end
+	context "during the game" do
 
-	context "should be able to be changed to" do
-		
-		it "occupied when receives place ship" do
-			expect{cell.place_ship}.to change{cell.occupied}.to true
+		it "should change status when hit" do
+			expect{cell.hit}.to change{cell.status}.to :hit
 		end
 
-		it "miss when unoccupied and shot" do
-			expect{cell.be_shot}.to change{cell.miss}.to true
-		end	
-
-		it "hit when occupied and shot" do
-			cell.place_ship
-			expect{cell.be_shot}.to change{cell.hit}.to true
+		it "should change status when missed" do
+			expect{cell.miss}.to change{cell.status}.to :miss
 		end
-		
+
+		it "indicator should display X when hit" do
+			cell.hit
+			expect(cell.indicator).to eq('X')
+		end
 	end
-
 end
