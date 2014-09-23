@@ -24,7 +24,7 @@ describe Cell do
 			expect{cell.miss}.to change{cell.status}.to :miss
 		end
 
-		it "indicator should display X when hit" do
+		it "indicator should return 'X' when hit" do
 			cell.hit
 			expect(cell.indicator).to eq('X')
 		end

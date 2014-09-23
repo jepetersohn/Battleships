@@ -2,7 +2,7 @@ class Cell
 
   attr_accessor :ship, :status
 
-  DISPLAY = {:hit => 'X', :miss => 'O', :empty => '-'}
+  MARKER = {:hit => 'X', :miss => 'O', :empty => '-'}
 
   def initialize(ship=nil, status=:empty)
     @ship = ship
@@ -18,9 +18,9 @@ class Cell
   end
 
   def indicator
-     return DISPLAY[:hit] if @status == :hit
-     return DISPLAY[:miss] if @status == :miss 
-     return DISPLAY[:empty] if @status == :empty
+     return MARKER[:hit] if @status == :hit
+     return MARKER[:miss] if @status == :miss 
+     return MARKER[:empty] if @status == :empty
      return '#' if @status != :hit && :ship
   end
 end
