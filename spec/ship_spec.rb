@@ -21,11 +21,14 @@ describe Ship do
 
 		it "has not hit" do
 			expect(ship.hit_count).to eq(0)
-
 		end
 
 		it "is not sunk" do
 			expect(ship).not_to be_sunk
+		end
+
+		it "should raise an error if wrong number of argument" do
+			expect{Ship.new(4, :not_a_ship)}.to raise_error(ArgumentError)
 		end
 	end
 
