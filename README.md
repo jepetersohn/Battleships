@@ -24,7 +24,6 @@ When all of one player's ships have been hit the game finishes and the player wh
 
 ###Ship (board, player, square)
 ---------------------------
-* can occupy a square   
 * can be hit 			
 * can sink 				
 
