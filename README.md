@@ -3,6 +3,8 @@ Battle Ships
 
 Player (ship, board)
 -------------------
+* has boards
+* has ships?
 * places ships on board
 * shoots at the board
 
@@ -23,7 +25,7 @@ Board (player, square, ship)
 ---------------------------
 * has squares
 * reports victory
-* reports when a ship is sunk
+* displays when a ship is sunk
 * tells a square when it is hit
 * tells a square when it it has a ship
 * displays a hit
