@@ -4,7 +4,9 @@
 -----------
 
 *initialize*
+
 @occupied?
+
 @shot?
 
 
