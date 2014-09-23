@@ -3,7 +3,7 @@ class Player
 	def initialize
 		@primary_board = "PrimaryBoard.new"
 		@tracking_board = "TrackingBoard.new"
-		@ships = []
+		@ships = [:patrolboat, :battleship]
 	end
 
 	def primary_board?
@@ -16,6 +16,11 @@ class Player
 
 	def ships
 		@ships
+	end
+
+	def place_ship(ship)
+		# ship.add(@primary_board)
+		@ships.delete(ship)
 	end
 
 end

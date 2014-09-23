@@ -5,7 +5,8 @@ describe Player do
 	let (:player) { Player.new }
 	let (:primary_board) { double :board }
 	let (:tracking_board) { double :board }
-	let (:ships) { double :ships }
+	let (:patrolboat) { double :ship }
+	let (:battleship) { double :ship }
 
 
 	context "on initialize it should" do
@@ -19,9 +20,17 @@ describe Player do
 		end
 
 		it "should have an array of ships" do
-			expect(player.ships).to eq([])
+			expect(player.ships).to eq([:patrolboat, :battleship])
 		end
 
+	end
+
+	context "at the start of the game" do
+
+		it "should be able place ships" do
+			player.place_ship(:patrolboat)
+			expect(player.ships).not_to include(:patrolboat)
+		end
 	end
 
 	
