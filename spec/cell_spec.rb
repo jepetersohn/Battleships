@@ -10,8 +10,8 @@ describe Cell do
 			expect(cell.occupied).to be false
 		end
 
-		it "should not be shot" do
-			expect(cell.shot).to be false
+		it "should not be missed" do
+			expect(cell.miss).to be false
 		end
 
 	end
@@ -22,10 +22,15 @@ describe Cell do
 			expect{cell.place_ship}.to change{cell.occupied}.to true
 		end
 
-		it "receive message to be shot" do
-			expect{cell.be_shot}.to change{cell.shot}.to true
+		it "miss when unoccupied and shot" do
+			expect{cell.be_shot}.to change{cell.miss}.to true
 		end	
 
+		it "hit when occupied and shot" do
+			cell.place_ship
+			expect{cell.be_shot}.to change{cell.hit}.to true
+		end
+		
 	end
 
 end

@@ -1,10 +1,11 @@
 class Cell
 
-	attr_reader :occupied, :shot
+	attr_reader :occupied, :miss, :hit
 
 	def initialize
 		@occupied = false
-		@shot = false
+		@miss = false
+		@hit = false
 	end
 
 	def place_ship
@@ -12,7 +13,9 @@ class Cell
 	end
 
 	def be_shot
-		@shot = true
+		@miss = true if !occupied
+		@hit = true if occupied
 	end
+
 
 end
