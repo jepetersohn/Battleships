@@ -7,11 +7,11 @@ describe Cell do
 	context "on initialize it should" do
 		
 		it "be unoccupied" do
-			expect(cell).to_not be_occupied
+			expect(cell.occupied).to be false
 		end
 
 		it "should not be shot" do
-			expect(cell).to_not be_shot
+			expect(cell.shot).to be false
 		end
 
 	end
@@ -19,11 +19,11 @@ describe Cell do
 	context "should be able to be changed to" do
 		
 		it "occupied when receives place ship" do
-			expect{cell.place_ship}.to change{cell.occupied?}.to true
+			expect{cell.place_ship}.to change{cell.occupied}.to true
 		end
 
 		it "receive message to be shot" do
-			expect{cell.be_shot}.to change{cell.shot?}.to true
+			expect{cell.be_shot}.to change{cell.shot}.to true
 		end	
 
 	end
