@@ -21,6 +21,7 @@
 ###Ship
 -----------
 receive_shot
+
 sunk?
  
 #####Types of boats (hit_count = 0)
