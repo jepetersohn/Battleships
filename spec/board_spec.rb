@@ -16,9 +16,12 @@ describe Board do
 		end
 
 		it "should have 100 cells" do
-			expect(board.grid.count).to eq(100)
+			expect(board.grid.flatten.count).to eq(100)
 		end	
 
+		it "should give coordinates to cells" do
+			expect(board.grid[9][9]).to_not be nil
+		end
 	end	
 
 	

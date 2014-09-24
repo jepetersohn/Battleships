@@ -3,7 +3,7 @@ class Board
 	# attr_reader =	:grid
 
 	def initialize
-		@grid = Array.new(100, Cell.new)
+		@grid = Array.new(10).map! {Array.new(10).map! {Cell.new}}
 	end	
 
 	def grid
@@ -11,3 +11,5 @@ class Board
 	end
 		
 end
+
+
