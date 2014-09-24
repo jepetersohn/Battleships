@@ -17,6 +17,10 @@ class Cell
     @status = :miss
   end
 
+  # def incoming_shot
+  #   indicator
+  # end
+
   def indicator
      return MARKER[:hit] if @status == :hit
      return MARKER[:miss] if @status == :miss 
