@@ -11,15 +11,18 @@ class Cell
 
   def hit
     @status = :hit
+    ship.receive_shot
   end
 
   def miss
     @status = :miss
   end
 
-  # def incoming_shot
-  #   indicator
-  # end
+  def incoming_shot
+    raise "Cell already shot" if status != :empty 
+    miss if !ship
+    hit if ship
+  end
 
   def indicator
      return MARKER[:hit] if @status == :hit
