@@ -29,4 +29,23 @@ describe Cell do
 			expect(cell.indicator).to eq('X')
 		end
 	end
+
+		context "if shot at and " do
+
+		it "empty" do
+			cell.incoming_shot
+			expect(cell.status).to eq(:miss)
+		end
+
+		it "has ship" do
+			cell.ship = true
+			cell.incoming_shot
+			expect(cell.status).to eq(:hit)
+		end
+
+		it "is already shot" do
+			cell.status = :miss
+			expect(lambda {cell.incoming_shot}).to raise_error(RuntimeError)
+		end
+	end
 end
