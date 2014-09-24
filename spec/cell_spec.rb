@@ -3,6 +3,7 @@ require 'cell'
 describe Cell do
 
 	let(:cell) {Cell.new}
+	let(:patrolboat) {double :patrolboat, receive_shot: "shot!"}
 
 	context "upon initialize it" do
 
@@ -11,12 +12,14 @@ describe Cell do
 		end
 
 		it "should have no ship" do
+
 			expect(cell.ship).to eq(nil)
 		end
 	end
 	context "during the game" do
 
 		it "should change status when hit" do
+			cell.ship = patrolboat
 			expect{cell.hit}.to change{cell.status}.to :hit
 		end
 
@@ -25,12 +28,13 @@ describe Cell do
 		end
 
 		it "indicator should return 'X' when hit" do
+			cell.ship = patrolboat
 			cell.hit
 			expect(cell.indicator).to eq('X')
 		end
 	end
 
-		context "if shot at and " do
+		context "if shot at and" do
 
 		it "empty" do
 			cell.incoming_shot
@@ -38,7 +42,7 @@ describe Cell do
 		end
 
 		it "has ship" do
-			cell.ship = true
+			cell.ship = patrolboat
 			cell.incoming_shot
 			expect(cell.status).to eq(:hit)
 		end
@@ -48,4 +52,22 @@ describe Cell do
 			expect(lambda {cell.incoming_shot}).to raise_error(RuntimeError)
 		end
 	end
+
+		context "if occupied by ship" do
+
+			it "it should know which ship it is" do
+				cell.ship = :patrolboat
+				expect(cell.ship).to eq(:patrolboat)
+			end
+
+			it "when hit should report back to ship" do
+				patrolboat = double :patrolboat
+				cell.ship = patrolboat
+				allow(patrolboat).to receive(:receive_shot).and_return('shot!')
+				expect(cell.incoming_shot).to eq('shot!')
+			end
+
+		end
+
+
 end

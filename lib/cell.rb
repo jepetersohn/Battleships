@@ -11,6 +11,7 @@ class Cell
 
   def hit
     @status = :hit
+    ship.receive_shot
   end
 
   def miss
