@@ -22,24 +22,25 @@ When all of one player's ships have been hit the game finishes and the player wh
 * places ships on board
 * shoots at the board
 
-###Ship (board, player, square)
+###Ship (board, player, cell)
 ---------------------------
 * can be hit 			
 * can sink 				
 
-###Square (ship, board)
+###Cell (ship, board)
 --------------------
 * knows if it has a ship 				   
 * knows when it is shot but empty (miss)  
 * knows when it is shot and has a ship (hit) 
 * knows if it is empty 
 
-###Board (player, square, ship)
+###Board (player, cell, ship)
 ---------------------------
-* has squares
+* has cells and knows their coordinates
+* has to validate coordinates
 * reports victory
 * displays when a ship is sunk
-* tells a square when it is hit
-* tells a square when it it has a ship
+* checks and tells a cell when it is hit
+* checks and tells a cell when it it has a ship
 * displays a hit
 * displays a miss
