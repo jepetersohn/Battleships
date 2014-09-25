@@ -5,8 +5,16 @@ class Board
   DIMENSION = 10
 
 	def initialize
-		@grid = Array.new(DIMENSION).map! {Array.new(DIMENSION).map! {Cell.new}}
+		@grid = rows.map! { columns }
 	end	
+
+  def rows
+    Array.new(DIMENSION)
+  end
+
+  def columns
+    Array.new(DIMENSION).map! {Cell.new}
+  end
 
   def place_ship(ship, coordinate, direction)
       x, y = coord_converter(coordinate)
@@ -46,6 +54,7 @@ class Board
     false
   end
 end
+
 
 
 
