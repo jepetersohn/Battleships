@@ -24,5 +24,7 @@ describe Board do
 		end
 	end	
 
+
+
 	
 end
