@@ -30,7 +30,7 @@ describe Board do
 	context "During the game it" do
 
 		it "should know how to convert coordinates" do
-			expect(board.coord_check("A1")).to eq [0, 0]
+			expect(board.coord_converter("A1")).to eq [0, 0]
 		end
 
 
