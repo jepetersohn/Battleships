@@ -3,11 +3,19 @@ class Board
   attr_reader :grid
 
   DIMENSION = 10
+<<<<<<< HEAD
 
   def initialize
     @grid = Array.new(DIMENSION).map! {Array.new(DIMENSION).map! {Cell.new}}
   end 
 
+=======
+
+	def initialize
+		@grid = Array.new(DIMENSION).map! {Array.new(DIMENSION).map! {Cell.new}}
+	end	
+
+>>>>>>> upstream/master
   def place_ship(ship, coordinate, direction)
       x, y = coord_converter(coordinate)
       ship.size.times do 
@@ -26,9 +34,15 @@ class Board
     grid[x][y].incoming_shot
   end
 
+<<<<<<< HEAD
   def coord_converter(coordinate) 
     [coordinate.split('', 2)[0].upcase.ord - 65, coordinate.split('', 2)[1].to_i - 1]
   end
+=======
+	def coord_converter(coordinate)	
+    [coordinate.split('', 2)[0].upcase.ord - 65, coordinate.split('', 2)[1].to_i - 1]
+	end
+>>>>>>> upstream/master
 
   def board_fit?(ship, coordinate, direction)
     x, y = coord_converter(coordinate)
@@ -45,6 +59,14 @@ class Board
     end
     false
   end
+<<<<<<< HEAD
 
 
 end
+=======
+end
+
+
+
+
+>>>>>>> upstream/master
