@@ -11,12 +11,12 @@ class Board
   def place_ship(ship, coordinate, direction)
       x, y = coord_converter(coordinate)
       ship.size.times do 
-        put_ship_on_grid(ship, x, y )
+        put_ship_on_grid(ship, x, y)
         direction == "R" ? x += 1 : y += 1
       end
   end
 
-  def put_ship_on_grid(ship,x,y )
+  def put_ship_on_grid(ship, x, y)
     grid[x][y].ship = ship
     grid[x][y].status = :occupied
   end
@@ -32,7 +32,13 @@ class Board
     true
   end
 
-  def s
+  def ship_clash? (ship, coordinate, direction)
+    x, y = coord_converter(coordinate)
+    ship.size.times do
+      return true if grid[x][y].ship
+      direction == "R" ? x += 1 : y += 1
+    end
+    false
   end
 
 

@@ -61,5 +61,11 @@ describe Board do
 			expect(board.board_fit?(battleship, "A7", "D")).to be true
 			expect(board.board_fit?(battleship, "G1", "R")).to be true
 		end
+
+		it "should be able to check if ship placement will clash" do
+			board.place_ship(battleship, "A1", "R")
+			expect(board.ship_clash?(battleship, "D1", "D")).to be true
+			expect(board.ship_clash?(battleship, "E1", "D")).to be false
+		end
 	end
 end
