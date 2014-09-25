@@ -3,10 +3,9 @@ require 'player'
 describe Player do 
 
 	let (:player) { Player.new }
-	let (:own_board) { double :board }
-	let (:cell) { double :cell }
-	let (:grid) { double :grid}
- 	let (:opponent_board ) { double :board, grid: grid}
+	let (:own_board) { double :own_board }
+ 	let (:opponent_board ) { double :opponent_board}
+ 	let (:patrolboat) { double :patrolboat }
 
 
 	context "on initialize it should" do
@@ -48,17 +47,27 @@ describe Player do
 	context "at the start of the game" do
 
 		it "should be able to tell board where to place ships" do
-			expect{player.place_ship(:patrolboat)}.to change{player.ships.count}.by -1
+			allow(own_board).to receive(:place_ship).with(patrolboat, "C4", "R")
+			expect(own_board).to receive(:place_ship).with(patrolboat, "C4", "R")
+			player.place_ship(own_board, patrolboat, "C4", "R")
 		end
+
+
+		it "when player places ship it is removed from shipyard" do
+			allow(own_board).to receive(:place_ship).with(:patrolboat, "C4", "R")
+ 			expect{player.place_ship(own_board, :patrolboat,"C4", "R")}.to change{player.ships.count}.by -1
+		end
+
 
 	end
 
 	context "during the game" do
 
 		it "should be able to shoot at a coordinate" do
-			allow(grid).to receive(:[]).with("C4").and_return(cell)
-			expect(cell).to receive(:incoming_shot)
+			allow(opponent_board).to receive(:incoming_shot).with("C4")
+			expect(opponent_board).to receive(:incoming_shot).with("C4")
 			player.shoot_at(opponent_board, "C4")
+	
 		end
 
 	end
