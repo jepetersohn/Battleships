@@ -3,7 +3,7 @@ class Player
 	def initialize(name="Unknown")
 		@own_board = Board.new
 		@name = name
-		@ships = [:patrolboat, :battleship, :submarine, :aircraftcarrier, :destroyer]
+		@ships = [Ship.patrolboat, Ship.battleship, Ship.submarine, Ship.aircraftcarrier, Ship.destroyer]
 	end
 
 	def own_board
@@ -22,14 +22,15 @@ class Player
 		@ships[0]
 	end
 
-	def place_ship(own_board, ship, coordinate, direction)
+	def place_ship(ship, coordinate, direction)
 		own_board.place_ship(ship, coordinate, direction)
 		ships.delete(ship)
 	end
 
-	 def shoot_at(opponent_board, coordinate)
+	def shoot_at(opponent_board, coordinate)
 	 	opponent_board.incoming_shot(coordinate)
-	 end 
+	end 
+
 
 end
 
