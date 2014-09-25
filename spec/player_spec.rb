@@ -11,10 +11,6 @@ describe Player do
 
 	context "on initialize it should" do
 
-		it "should have a name" do
-			expect(player.name).not_to be nil
-		end
-
 		it "have a own board" do
 			expect(player.own_board).not_to be nil
 		end

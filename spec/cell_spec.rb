@@ -63,8 +63,8 @@ describe Cell do
 			it "when hit should report back to ship" do
 				patrolboat = double :patrolboat
 				cell.ship = patrolboat
-				allow(patrolboat).to receive(:receive_shot).and_return('shot!')
-				expect(cell.incoming_shot).to eq('shot!')
+				allow(patrolboat).to receive(:receive_shot).and_return(:hit)
+				expect(cell.incoming_shot).to eq(:hit)
 			end
 
 		end

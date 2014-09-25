@@ -1,9 +1,15 @@
 class Player
 
-	def initialize(name="Unknown")
+	attr_accessor :patrolboat, :battleship, :submarine, :aircraftcarrier, :destroyer
+
+	def initialize
 		@own_board = Board.new
-		@name = name
-		@ships = [Ship.patrolboat, Ship.battleship, Ship.submarine, Ship.aircraftcarrier, Ship.destroyer]
+		@patrolboat = Ship.patrolboat
+		@battleship = Ship.battleship
+		@submarine = Ship.submarine
+		@aircraftcarrier = Ship.aircraftcarrier
+		@destroyer = Ship.destroyer
+		@ships = [:patrolboat, :battleship, :submarine, :aircraftcarrier, :destroyer]
 	end
 
 	def own_board
@@ -16,10 +22,6 @@ class Player
 
 	def ships
 		@ships
-	end
-
-	def patrolboat
-		@ships[0]
 	end
 
 	def place_ship(ship, coordinate, direction)
