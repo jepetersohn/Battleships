@@ -67,5 +67,10 @@ describe Board do
 			expect(board.ship_clash?(battleship, "D1", "D")).to be true
 			expect(board.ship_clash?(battleship, "E1", "D")).to be false
 		end
+
+		it "should be able to shoot at a coordinate" do
+			allow(board.grid[2][3]).to receive(:incoming_shot).and_return(:hit)
+			expect(board.shoot_at("C4")).to eq(:hit)
+		end
 	end
 end

@@ -21,6 +21,11 @@ class Board
     grid[x][y].status = :occupied
   end
 
+  def shoot_at(coordinates)
+    x,y = coord_converter(coordinates)
+    grid[x][y].incoming_shot
+  end
+
 	def coord_converter(coordinate)	
     [coordinate.split('', 2)[0].upcase.ord - 65, coordinate.split('', 2)[1].to_i - 1]
 	end
