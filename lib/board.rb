@@ -18,7 +18,7 @@ class Board
 
   def put_ship_on_grid(ship, x, y)
     grid[x][y].ship = ship
-    grid[x][y].status = :occupied
+    # grid[x][y].status = :occupied
   end
 
   def shoot_at(coordinates)
@@ -45,8 +45,8 @@ class Board
     end
     false
   end
-
-
 end
+
+
 
 
