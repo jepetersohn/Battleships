@@ -1,6 +1,5 @@
 class Player
 
-
 	def initialize(name="Unknown")
 		@own_board = Board.new
 		@name = name
@@ -23,13 +22,14 @@ class Player
 		@ships[0]
 	end
 
-	def place_ship(ship)
+	def place_ship(own_board, ship, coordinate, direction)
+		own_board.place_ship(ship, coordinate, direction)
 		ships.delete(ship)
 	end
 
-	def shoot_at(opponent_board, at_coordinate)
-		opponent_board.grid[at_coordinate].incoming_shot
-	end 
+	 def shoot_at(opponent_board, coordinate)
+	 	opponent_board.incoming_shot(coordinate)
+	 end 
 
 end
 
