@@ -27,12 +27,20 @@ class Game
 		"#{player.name}, what direction do you want to place your #{ship.name} ('R' or 'D')"
 	end
 
+	def ask_player_shoot(player)
+		"#{player.name}, where do you want to shoot? (e.g. 'A1')"
+	end
+
 	def direction
 		direction = STDIN.gets.chomp
 	end
 
 	def pass_coordinates(player, ship, coordinate, direction)
 		player.board.place_ship(ship, coordinate, direction)
+	end
+
+	def pass_shot(player, coordinate)
+		player.board.shoot_at(coordinate)
 	end
 
 end
