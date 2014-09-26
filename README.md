@@ -15,11 +15,11 @@ When all of one player's ships have been hit the game finishes and the player wh
 Team 
 -----------
 This was written by:
-* Andrew Snead (github: [snozza](https://github.com/snozza)
-* James Carter (github: [jamesacarter](https://github.com/jamesascarter)
-* Nicole Pellicena Tredway (github: [NicolePell](https://github.com/NicolePell)
-* Sandrine Zhang Ferron (github: [MadameSandrine](https://github.com/MadameSardine)
-* Yvette Cook (github: [yvettecook](https://github.com/yvettecook)
+* Andrew Snead (github: [snozza](https://github.com/snozza))
+* James Carter (github: [jamesacarter](https://github.com/jamesascarter))
+* Nicole Pellicena Tredway (github: [NicolePell](https://github.com/NicolePell))
+* Sandrine Zhang Ferron (github: [MadameSandrine](https://github.com/MadameSardine))
+* Yvette Cook (github: [yvettecook](https://github.com/yvettecook))
 
 
 ##Tools Used
