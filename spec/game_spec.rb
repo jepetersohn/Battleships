@@ -7,7 +7,7 @@ describe Game do
 	
 		let(:game) {Game.new}
 		let(:player1) {double :player1, Class: Player}
-		let(:battleship) {double :battleship}
+		let(:battleship) {double :battleship, name: :battleship}
 
 	it "should start with player 1" do
 		expect(game.player1.class).to eq(Player)
@@ -19,10 +19,9 @@ describe Game do
 
 	context "at beginning of game" do
 
-		it "should ask player to battleship" do
-			player1 = Player.new
-			battleship = Ship.battleship
-		expect(game.ask_player_place_ship(player1, battleship)).to eq("player1, where do you want to place your battleship (e.g. 'A1')  ")
+		it "should ask player to place battleship" do
+		allow(battleship).to receive(:name).with ("battleship")
+		expect(game.ask_player_place_ship(game.player1, battleship)).to eq("player1, where do you want to place your battleship (e.g. 'A1') ")
 		end	
 
 		# it "should send ship coordinates to be board" do
