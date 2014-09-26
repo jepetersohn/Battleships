@@ -6,9 +6,11 @@ require 'board'
 describe Game do 
 	
 		let(:game) {Game.new}
-		let(:player1) {double :player1, Class: Player, board: true, place_ship: true}
+		let(:player1) {double :player1, Class: Player, board: [], place_ship: true, shoot_at: true, grid: []}
 		let(:battleship) {double :battleship, name: :battleship}
 		let(:STDIN) {double :STDIN}
+		let(:player2) {Player.new}
+		let(:board) {Board.new}
  
 	context "Upon initialize" do	
 
@@ -59,9 +61,15 @@ describe Game do
 		end
 
 		it "should pass shooting coordinate to board" do
+			allow(player1.board).to receive(:shoot_at).with ("A1")
 			expect(player1.board).to receive(:shoot_at).with("A1")
 			game.pass_shot(player1, "A1")
 		end
+
+		it "should report if shot is hit or miss" do
+			expect(game.pass_shot(player2, "D3")).to eq(:miss)
+		end
+
 	end
 
 	
