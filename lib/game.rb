@@ -39,6 +39,10 @@ class Game
 		player.board.place_ship(ship, coordinate, direction)
 	end
 
+	def pass_shot(player, coordinate)
+		player.board.shoot_at(coordinate)
+	end
+
 end
 
 # def play_game(game_number)

@@ -42,7 +42,6 @@ describe Game do
 		end
 
 		it "should pass ship coordinates to board" do
-			allow(player1.board).to receive(:place_ship)
 			expect(player1.board).to receive(:place_ship).with(battleship, "A1", "R")
 			game.pass_coordinates(player1, battleship, "A1", "R")
 		end
@@ -52,6 +51,16 @@ describe Game do
 
 		it "should ask player to give shooting coordinate" do
 			expect(game.ask_player_shoot(game.player1)).to eq("player1, where do you want to shoot? (e.g. 'A1')")
+		end
+
+		it "should receive user input for shooting coordinate" do
+			allow(STDIN).to receive(:gets).and_return('A1')
+			expect(game.direction).to eq("A1")
+		end
+
+		it "should pass shooting coordinate to board" do
+			expect(player1.board).to receive(:shoot_at).with("A1")
+			game.pass_shot(player1, "A1")
 		end
 	end
 
