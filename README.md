@@ -12,6 +12,22 @@ The attacking player notes the hit or miss on their own tracking grid, in order 
 
 When all of one player's ships have been hit the game finishes and the player who has ships remaining is the winner.
 
+Team 
+-----------
+This was written by:
+* Andrew Snead (github: [snozza](https://github.com/snozza)
+* James Carter (github: [jamesacarter](https://github.com/jamesascarter)
+* Nicole Pellicena Tredway (github: [NicolePell](https://github.com/NicolePell)
+* Sandrine Zhang Ferron (github: [MadameSandrine](https://github.com/MadameSardine)
+* Yvette Cook (github: [yvettecook](https://github.com/yvettecook)
+
+
+##Tools Used
+* Ruby 
+* RSpec
+* IRB
+* Terminal Tables (ruby gem: can be found [here](https://github.com/visionmedia/terminal-table))
+* GitHub 
 
 ##CRC Modelling
 
