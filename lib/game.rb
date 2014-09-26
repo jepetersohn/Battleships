@@ -1,9 +1,9 @@
 class Game
 	
 
-	def initialize
-		@player1 = Player.new
-		@player2 = Player.new
+	def initialize(player1="player1", player2="player2")
+		@player1 = Player.new(player1)
+		@player2 = Player.new(player2)
 	end
 
 	def player1
@@ -15,15 +15,25 @@ class Game
 	end
 
 	def ask_player_place_ship(player, ship)
-		"#{player.name}, where do you want to place your #{ship.name} (e.g. 'A1') "
+		"#{player.name}, where do you want to place your #{ship.name} (e.g. 'A1')"
+
 	end	
 
-	def ship_coordinates
-		ship_coordinates = gets.chomp
+	def coordinates
+		coordinates = STDIN.gets.chomp
 	end
 
+	def ask_player_ship_direction(player, ship)
+		"#{player.name}, what direction do you want to place your #{ship.name} ('R' or 'D')"
+	end
 
+	def direction
+		direction = STDIN.gets.chomp
+	end
 
+	def pass_coordinates(player, ship, coordinate, direction)
+		player.board.place_ship(ship, coordinate, direction)
+	end
 
 end
 
