@@ -52,7 +52,7 @@ describe Game do
 	context "during the game" do
 
 		it "should ask player to give shooting coordinate" do
-			expect(game.ask_player_shoot(game.player1)).to eq("player1, where do you want to shoot? (e.g. 'A1')")
+			expect(game.ask_player_shoot(game.player1)).to eq(puts "player1, where do you want to shoot? (e.g. 'A1')")
 		end
 
 		it "should receive user input for shooting coordinate" do

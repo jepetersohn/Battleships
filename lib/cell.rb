@@ -22,7 +22,7 @@ class Cell
     raise "Cell already shot" if status != :empty 
     miss if !ship
     hit if ship
-    return @status
+    puts "#{@status.upcase} !!!"
   end
 
   def to_s

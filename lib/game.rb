@@ -14,6 +14,10 @@ class Game
 		@player2
 	end
 
+	def players
+		[@player1, @player2]
+	end
+
 	def ask_player_place_ship(player, ship)
 		"#{player.name}, where do you want to place your #{ship.name} (e.g. 'A1')"
 
@@ -28,7 +32,7 @@ class Game
 	end
 
 	def ask_player_shoot(player)
-		"#{player.name}, where do you want to shoot? (e.g. 'A1')"
+		puts "#{player.name}, where do you want to shoot? (e.g. 'A1')"
 	end
 
 	def direction
@@ -40,7 +44,7 @@ class Game
 	end
 
 	def pass_shot(player, coordinate)
-		player.board.shoot_at(coordinate)
+		return player.board.shoot_at(coordinate)
 	end
 
 	def check_sunk(player)
@@ -50,21 +54,43 @@ class Game
 		puts "Game over" if player.patrolboat.sunk? && player.submarine.sunk? && player.battleship.sunk? && player.aircraftcarrier.sunk? && player.destroyer.sunk?
 	end
 
+	def player1_move
+		# player2.print_boards(player2.tracking_board)	
+		ask_player_shoot(player1)
+		target = coordinates
+		pass_shot(player2, target)
+		check_sunk(player2)
+	end
+
+	def player2_move
+		# player1.print_boards(player1.tracking_board)	
+		ask_player_shoot(player2)
+		target = coordinates
+		pass_shot(player1, target)
+		check_sunk(player1)
+	end
+
+
+
 
 end
 
 # def play_game(game_number)
-# 	game = Game.new
-# 	game.players.each do |player|
-# 		player.ships.each do |ship|
-# 			ask_player_place_ship(player, ship)
-# 			ship_coordinates = gets.chomp
-# 			board_fit?
-#			ship.clash?
-# 			player.board.place_ship(ship, ship_coordinates)
-# 		end
-# 	end
-# player 1 hits "A1" on player 2 board
+	# game = Game.new
+	# Game goes into deployment phase ...
+	# game.players.each do |player|
+	# 	# player.ships.each do |ship|
+	# 	# 	ask_player_place_ship(player, ship)
+	# 	# 	ship_coordinates = gets.chomp
+	# 	# 	board_fit?
+	# 	# 	ship.clash?
+	# 	# 	player.board.place_ship(ship, ship_coordinates)
+	# 	end
+	# end
+
+	#Board populated with ships, game starts
+
+
 	
 
 
