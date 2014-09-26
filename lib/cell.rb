@@ -25,7 +25,7 @@ class Cell
     return @status
   end
 
-  def indicator
+  def to_s
      return MARKER[:hit] if @status == :hit
      return MARKER[:miss] if @status == :miss 
      return MARKER[:empty] if @status == :empty
