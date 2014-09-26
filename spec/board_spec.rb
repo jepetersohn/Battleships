@@ -41,15 +41,15 @@ describe Board do
 		it "should be able to place patrolboat coordinates" do
 			board.place_ship(patrolboat, "A1", "R")
 			expect(board.grid[0][0].ship).to eq(patrolboat)
-			expect(board.grid[1][0].ship).to eq(patrolboat)
+			expect(board.grid[0][1].ship).to eq(patrolboat)
 		end
 
 		it "should be able to place battleship coordinates" do
 			board.place_ship(battleship, "A1", "D")
 			expect(board.grid[0][0].ship).to eq(battleship)
-			expect(board.grid[0][1].ship).to eq(battleship)
-			expect(board.grid[0][2].ship).to eq(battleship)
-			expect(board.grid[0][3].ship).to eq(battleship)
+			expect(board.grid[1][0].ship).to eq(battleship)
+			expect(board.grid[2][0].ship).to eq(battleship)
+			expect(board.grid[3][0].ship).to eq(battleship)
 		end
 
 		it "should be able to verify if ship will not fit on board" do
@@ -64,8 +64,8 @@ describe Board do
 
 		it "should be able to check if ship placement will clash" do
 			board.place_ship(battleship, "A1", "R")
-			expect(board.ship_clash?(battleship, "D1", "D")).to be true
-			expect(board.ship_clash?(battleship, "E1", "D")).to be false
+			expect(board.ship_clash?(battleship, "D1", "D")).to be false
+			expect(board.ship_clash?(battleship, "A2", "D")).to be true
 		end
 
 		it "should be able to shoot at a coordinate" do
