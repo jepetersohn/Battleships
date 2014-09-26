@@ -29,34 +29,3 @@ This was written by:
 * Terminal Tables (ruby gem: can be found [here](https://github.com/visionmedia/terminal-table))
 * GitHub 
 
-##CRC Modelling
-
-###Player (ship, board)
--------------------
-* has boards
-* has ships?
-* places ships on board
-* shoots at the board
-
-###Ship (board, player, cell)
----------------------------
-* can be hit 			
-* can sink 				
-
-###Cell (ship, board)
---------------------
-* knows if it has a ship 				   
-* knows when it is shot but empty (miss)  
-* knows when it is shot and has a ship (hit) 
-* knows if it is empty 
-
-###Board (player, cell, ship)
----------------------------
-* has cells and knows their coordinates
-* has to validate coordinates
-* reports victory
-* displays when a ship is sunk
-* checks and tells a cell when it is hit
-* checks and tells a cell when it it has a ship
-* displays a hit
-* displays a miss
