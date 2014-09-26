@@ -16,10 +16,11 @@ class Game
 
 	def ask_player_place_ship(player, ship)
 		"#{player.name}, where do you want to place your #{ship.name} (e.g. 'A1') "
+
 	end	
 
-	def ship_coordinates
-		ship_coordinates = gets.chomp
+	def coordinates
+		coordinates = STDIN.gets.chomp
 	end
 
 
