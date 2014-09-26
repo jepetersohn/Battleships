@@ -43,6 +43,14 @@ class Game
 		player.board.shoot_at(coordinate)
 	end
 
+	def check_sunk(player)
+		player.ships.each do |ship|
+			puts "#{ship.name} sunk status is #{ship.sunk?}"
+
+		end
+	end
+
+
 end
 
 # def play_game(game_number)
@@ -56,3 +64,7 @@ end
 # 			player.board.place_ship(ship, ship_coordinates)
 # 		end
 # 	end
+# player 1 hits "A1" on player 2 board
+	
+
+

@@ -75,6 +75,13 @@ describe Game do
 			expect(game.pass_shot(game.player2, "D3")).to eq(:hit)
 		end
 
+		it "should report if patrolboat is sunk" do
+			game.pass_coordinates(game.player2, game.player2.patrolboat, "A1", "D")
+			game.pass_shot(game.player2, "A1")
+			game.pass_shot(game.player2, "A2")
+			expect(game.check_sunk(game.player2, game.player2.patrolboat)).to be true
+		end
+
 
 	end
 

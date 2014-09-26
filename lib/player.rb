@@ -15,7 +15,7 @@ class Player
 		@submarine = Ship.submarine
 		@aircraftcarrier = Ship.aircraftcarrier
 		@destroyer = Ship.destroyer
-		@ships = [:patrolboat, :battleship, :submarine, :aircraftcarrier, :destroyer]
+		@ships = [patrolboat, battleship, submarine, aircraftcarrier, destroyer]
 		@name = name
 	end
 end
