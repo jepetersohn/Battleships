@@ -9,7 +9,7 @@ describe Game do
 		let(:player1) {double :player1, Class: Player, board: [], place_ship: true, shoot_at: true, grid: []}
 		let(:battleship) {double :battleship, name: :battleship}
 		let(:STDIN) {double :STDIN}
-		let(:player2) {Player.new}
+		# let(:player2) {Player.new}
 		let(:board) {Board.new}
  
 	context "Upon initialize" do	
@@ -66,9 +66,15 @@ describe Game do
 			game.pass_shot(player1, "A1")
 		end
 
-		it "should report if shot is hit or miss" do
-			expect(game.pass_shot(player2, "D3")).to eq(:miss)
+		it "should report if shot is miss" do
+			expect(game.pass_shot(game.player2, "D3")).to eq(:miss)
 		end
+
+		it "should report if shot is hit" do
+			game.pass_coordinates(game.player2, game.player2.battleship, "D3", "D")
+			expect(game.pass_shot(game.player2, "D3")).to eq(:hit)
+		end
+
 
 	end
 
