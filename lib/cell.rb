@@ -26,9 +26,10 @@ class Cell
   end
 
   def to_s
+     return '#' if status != :hit && ship
      return MARKER[:hit] if @status == :hit
      return MARKER[:miss] if @status == :miss 
      return MARKER[:empty] if @status == :empty
-     return '#' if @status != :hit && :ship
+     
   end
 end

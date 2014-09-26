@@ -17,19 +17,19 @@ describe Game do
 		expect(game.player2.class).to eq(Player)
 	end
 
-	context "at beginning of game" do
+	# context "at beginning of game" do
 
-		it "should ask player to battleship" do
-			player1 = Player.new
-			battleship = Ship.battleship
-		expect(game.ask_player_place_ship(player1, battleship)).to eq("player1, where do you want to place your battleship (e.g. 'A1')  ")
-		end	
+	# 	it "should ask player to battleship" do
+	# 		player1 = Player.new
+	# 		battleship = Ship.battleship
+	# 	expect(game.ask_player_place_ship(player1, battleship)).to eq("player1, where do you want to place your battleship (e.g. 'A1')  ")
+	# 	end	
 
 		# it "should send ship coordinates to be board" do
 		# 	expect(game.send_ship_coordinates).
 		# end
 
-	end
+	# end
 
 	
 end
