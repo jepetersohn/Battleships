@@ -46,8 +46,8 @@ class Game
 	def check_sunk(player)
 		player.ships.each do |ship|
 			puts "#{ship.name} sunk status is #{ship.sunk?}"
-
 		end
+		puts "Game over" if player.patrolboat.sunk? && player.submarine.sunk? && player.battleship.sunk? && player.aircraftcarrier.sunk? && player.destroyer.sunk?
 	end
 
 
