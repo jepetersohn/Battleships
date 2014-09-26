@@ -6,7 +6,7 @@ require 'board'
 describe Game do 
 	
 		let(:game) {Game.new}
-		let(:player1) {double :player1, Class: Player}
+		let(:player1) {double :player1, Class: Player, board: true, place_ship: true}
 		let(:battleship) {double :battleship, name: :battleship}
 		let(:STDIN) {double :STDIN}
  
@@ -36,6 +36,16 @@ describe Game do
 			expect(game.coordinates).to eq("A1")
 		end
 
+		it "should receive user input for direction" do
+			allow(STDIN).to receive(:gets).and_return('R')
+			expect(game.direction).to eq("R")
+		end
+
+		it "should pass ship coordinates to board" do
+			allow(player1.board).to receive(:place_ship)
+			expect(player1.board).to receive(:place_ship).with(battleship, "A1", "R")
+			game.pass_coordinates(player1, battleship, "A1", "R")
+		end
 	end
 
 	
