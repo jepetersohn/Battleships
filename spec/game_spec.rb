@@ -24,11 +24,14 @@ describe Game do
 	context "at beginning of game" do
 
 		it "should ask player to place battleship" do
-		allow(battleship).to receive(:name).with ("battleship")
-		expect(game.ask_player_place_ship(game.player1, battleship)).to eq("player1, where do you want to place your battleship (e.g. 'A1') ")
+			expect(game.ask_player_place_ship(game.player1, battleship)).to eq("player1, where do you want to place your battleship (e.g. 'A1')")
 		end	
 
-		it "should receive user input for ship coordinate" do
+		it "should ask player for direction" do
+			expect(game.ask_player_ship_direction(game.player1, battleship)).to eq("player1, what direction do you want to place your battleship ('R' or 'D')")
+		end
+
+		it "should receive user input for coordinate" do
 			allow(STDIN).to receive(:gets).and_return('A1')
 			expect(game.coordinates).to eq("A1")
 		end
