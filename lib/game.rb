@@ -51,6 +51,8 @@ end
 # 		player.ships.each do |ship|
 # 			ask_player_place_ship(player, ship)
 # 			ship_coordinates = gets.chomp
+# 			board_fit?
+#			ship.clash?
 # 			player.board.place_ship(ship, ship_coordinates)
 # 		end
 # 	end
