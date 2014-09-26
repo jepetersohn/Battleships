@@ -3,11 +3,11 @@ require 'terminal-table/import'
 module GridPrint
   
   def print_boards
-    letters = ("A".."J").to_a.unshift(" ")
+    letters = (1..10).to_a.unshift(" ")
     #board duped in order not to modify original grid
-    temp_board = board.grid.dup
-      (0..9).each do |n|
-        temp_board[n].unshift(n+1)
+    temp_board = Marshal.load(Marshal.dump(board.grid.clone))
+      ("A".."J").each do |n|
+        temp_board[n.ord - 65].unshift(n)
       end
     puts table(letters, *temp_board)
   end

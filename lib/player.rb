@@ -1,7 +1,12 @@
+require_relative 'grid_print'
+
 class Player
 
 	attr_accessor :patrolboat, :battleship, :submarine, :aircraftcarrier, :destroyer
 	attr_accessor :ships, :board, :name
+
+	
+	include GridPrint
 
 	def initialize(name="Unknown player")
 		@board = Board.new
