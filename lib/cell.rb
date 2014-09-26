@@ -30,6 +30,5 @@ class Cell
      return MARKER[:hit] if @status == :hit
      return MARKER[:miss] if @status == :miss 
      return MARKER[:empty] if @status == :empty
-     
   end
 end
